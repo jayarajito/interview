@@ -1,0 +1,70 @@
+https://www.youtube.com/watch?v=cFhWlBkeGxA&list=PLa0y5U7_TUYyNse8nYOwlA6x0AY1ECZMh
+
+1. How to set a username and password to never expire
+
+change -M -1 username
+
+2. Why /etc/passwd and /etc/shadow file cannot be merged into 1 file
+
+In a Linux system, "/etc/passwd" stores basic user information including usernames, while "/etc/shadow" stores the encrypted passwords for those users, providing a more secure way to manage user authentication by keeping password details separate and only accessible to root users; 
+
+3. To List all the files opened by particular PID
+
+lsof -p PID
+
+4. We are unable to unmount the file system. What are the reason behind it?
+
+#you are in the same directory 
+pwd
+
+#some users are present in the directory and using its content
+fuser -cu /dev/sda
+
+#some of the files are open in the directory 
+lsof /dev/sda7
+
+
+5. What could be the reason if server take more time after reboot?
+Filesystem got corrupt and its ext2, ext2 is not having journaling feature.
+
+Nowa days this is not a issue
+
+6. We are trying to create the file under any partition nut we are getting permission denied alert. What could be the reason?However no space issue and no permission issue?
+
+I am running out of inode
+
+In Linux, an inode, or index node, is a data structure that stores information about files and directories. Inodes are unique identifiers for each file and folder in the system. 
+
+df -i partition or files or folder
+
+df -i /dev/sda1
+
+If 100% of your inodes are used, try the following options
+
+Find unwanted files or large files and delete or move to another server
+
+7. How to check kernel routing table information?
+There are 3 commands are their to check routing table information.
+
+route -n
+netstat -rn
+ip route
+
+8. How to set sticky bit and what is the difference b/w small s and capital S
+
+Sticky bit is special permission applied on a directory.
+This permission does not affect individual files. However, at the directory level, it restricts file deletion.
+
+Only the owner (and root) of a file can remove the file within that directory. A common example of this is the /tmp directory:
+
+Symbolic Way
+chmod o+t /opt/dump/
+or
+chmod +t /opt/dump/
+
+Numerical Way
+chmod 1757 /opt/dump
+
+
+s- setuid and executable
+S- setuid and not executable
