@@ -1,5 +1,5 @@
-https://www.youtube.com/watch?v=cFhWlBkeGxA&list=PLa0y5U7_TUYyNse8nYOwlA6x0AY1ECZMh
-
+https://www.youtube.com/watch?v=cFhWlBkeGxA&list=PLPVaGLSxvigJfF9WWW0hD-yhMWq40ZY_G
+Video 1
 1. How to set a username and password to never expire
 
 change -M -1 username
@@ -68,3 +68,30 @@ chmod 1757 /opt/dump
 
 s- setuid and executable
 S- setuid and not executable
+
+
+Video 2
+
+https://www.youtube.com/shorts/eSNmqSiJy9E?feature=share
+
+9. Which file is used to specify the default gateway?
+
+/etc/sysconfig/network
+
+in this directory all the network related files will be there
+
+
+10. In RHEL 7 how to switch between two runlevels?
+
+systemctl isolate multi-user.target
+systemctl isolate runlevel3.target
+
+Changing the default run level
+systemctl set-default multi-user.target
+systemctl get-default
+
+11. What is NFS? How to configure it? What port number does it use?
+
+Port number is 2049
+
+
